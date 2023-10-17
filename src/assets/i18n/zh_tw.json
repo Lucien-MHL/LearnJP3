@@ -3,5 +3,6 @@
   "hiragana": "平假名",
   "katakana": "片假名",
   "seion": "清音",
-  "dakuon": "濁音"
+  "dakuon": "濁音",
+  "insert-answer": "輸入答案:"
 }
