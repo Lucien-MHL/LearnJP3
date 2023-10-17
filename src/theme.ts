@@ -29,7 +29,7 @@ export const GlobalStyle = createGlobalStyle`
   }
 `
 
-type Palette = {
+export type Palette = {
   mine_shaft: string
   mercury: string
   pickled_blue_wood: string
@@ -39,6 +39,7 @@ type Palette = {
   red: string
   dark_green: string
   brown: string
+  gray: string
 }
 
 export const palette: Palette = {
@@ -51,4 +52,5 @@ export const palette: Palette = {
   red: '#f52727',
   dark_green: '#062D09',
   brown: '#6D4200',
+  gray: '#5f5f5f',
 }
