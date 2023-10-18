@@ -1,5 +1,5 @@
 import { S } from './styles'
-import Answer from '../../elements/Answer'
+import Answer from './Answer'
 import { useTranslation } from 'react-i18next'
 
 export default function GamePage() {
