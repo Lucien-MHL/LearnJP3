@@ -5,8 +5,19 @@ export const S = {
     width: 100%;
     height: 100%;
     display: flex;
+    position: relative;
     background: ${({ theme }) =>
       `radial-gradient(${theme.gray},${theme.mine_shaft})`};
+  `,
+  Title: styled.p`
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    color: ${({ theme }) => theme.mercury};
+    text-align: center;
+    text-shadow: 0 5px 10px ${({ theme }) => theme.black};
+    font-size: 35px;
+    margin-top: 50px;
   `,
   GameSection: styled.section`
     aspect-ratio: 4/3;
