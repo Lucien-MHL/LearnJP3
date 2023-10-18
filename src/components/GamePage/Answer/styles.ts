@@ -10,6 +10,7 @@ export const S = {
     position: relative;
   `,
   Text: styled.p`
+    user-select: none;
     position: absolute;
     color: ${({ theme }) => theme.mercury};
     letter-spacing: 3px;
