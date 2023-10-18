@@ -1,15 +1,8 @@
 import styled from 'styled-components'
 
 export const S = {
-  Container: styled.div`
+  HomeSection: styled.section`
     user-select: none;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    background: ${({ theme }) =>
-      `radial-gradient(${theme.gray},${theme.mine_shaft})`};
-  `,
-  Section: styled.section`
     aspect-ratio: 4/3;
     width: 850px;
     margin: auto;

@@ -25,21 +25,15 @@ export const GlobalStyle = createGlobalStyle`
   #root {
     width: 100%;
     height: 100%;
+    display: flex;
+    background: ${({ theme }) =>
+      `radial-gradient(${theme.gray},${theme.mine_shaft})`};
     white-space: pre-line; /* This command allow you to use escape character */
   }
 `
 
-export type Palette = {
-  mine_shaft: string
-  mercury: string
-  pickled_blue_wood: string
-  black: string
-  white: string
-  green: string
-  red: string
-  dark_green: string
-  brown: string
-  gray: string
+export interface Palette {
+  [key: string]: string
 }
 
 export const palette: Palette = {

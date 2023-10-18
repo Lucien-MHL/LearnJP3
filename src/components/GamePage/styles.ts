@@ -1,14 +1,6 @@
 import styled from 'styled-components'
 
 export const S = {
-  Container: styled.div`
-    width: 100%;
-    height: 100%;
-    display: flex;
-    position: relative;
-    background: ${({ theme }) =>
-      `radial-gradient(${theme.gray},${theme.mine_shaft})`};
-  `,
   Title: styled.p`
     position: absolute;
     width: 100%;

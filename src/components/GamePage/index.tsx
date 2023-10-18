@@ -6,7 +6,7 @@ export default function GamePage() {
   const { t } = useTranslation()
 
   return (
-    <S.Container>
+    <>
       <S.Title>
         {t('hiragana')} - {t('seion')}
       </S.Title>
@@ -16,6 +16,6 @@ export default function GamePage() {
           <Answer />
         </S.Answer>
       </S.GameSection>
-    </S.Container>
+    </>
   )
 }
