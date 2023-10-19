@@ -10,7 +10,7 @@ function App() {
     end: 'end',
   }
 
-  switch (page.end) {
+  switch (page.home) {
     case page.home:
       return <HomePage />
     case page.game:

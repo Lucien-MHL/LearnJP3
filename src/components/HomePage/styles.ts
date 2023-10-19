@@ -13,7 +13,10 @@ export const S = {
     font-size: 80px;
     text-align: center;
     text-shadow: 0 10px 10px ${({ theme }) => theme.black};
-    word-wrap: break-word;
+
+    @media (max-width: 500px) {
+      font-size: 60px;
+    }
   `,
   StageGroup: styled.ul`
     list-style: none;
