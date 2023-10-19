@@ -6,5 +6,7 @@
   "dakuon": "濁音",
   "insert-answer": "輸入答案:",
   "correct": "正確",
-  "fail": "錯誤"
+  "fail": "錯誤",
+  "retry": "再來一次",
+  "back-to-home": "回首頁"
 }
