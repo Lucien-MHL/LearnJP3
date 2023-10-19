@@ -1,9 +1,11 @@
 import { S } from './styles'
 
 type Props = {
-  text: string
+  children: React.ReactNode
+  onClick?: (e: React.MouseEvent<HTMLElement>) => void
 }
 
 export default function Button(props: Props) {
-  return <S.Button>{props.text}</S.Button>
+  const { children, onClick } = props
+  return <S.Button onClick={onClick}>{children}</S.Button>
 }
