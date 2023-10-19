@@ -39,12 +39,8 @@ export interface Palette {
 export const palette: Palette = {
   mine_shaft: '#242424',
   mercury: '#e3e3e3',
-  pickled_blue_wood: '#0d2b37',
   black: '#000000',
-  white: '#ffffff',
   green: '#77f779',
   red: '#f52727',
-  dark_green: '#062D09',
-  brown: '#6D4200',
   gray: '#5f5f5f',
 }
