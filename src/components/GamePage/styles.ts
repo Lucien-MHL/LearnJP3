@@ -1,12 +1,8 @@
 import styled from 'styled-components'
+import { PageSection } from '../../elements/PageSection'
 
 export const S = {
-  GameSection: styled.section`
-    aspect-ratio: 4/3;
-    width: 850px;
-    margin: auto;
-    position: relative;
-
+  GameSection: styled(PageSection)`
     &::before {
       content: '';
       width: 85%;
