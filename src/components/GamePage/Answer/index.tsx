@@ -11,9 +11,11 @@ export default function Answer() {
   }
 
   return (
-    <S.Form>
-      <S.Text>{t('insert-answer')}</S.Text>
-      <S.Input type='text' value={value} onChange={onChange} maxLength={3} />
-    </S.Form>
+    <S.AnswerSection>
+      <S.Form>
+        <S.Text>{t('insert-answer')}</S.Text>
+        <S.Input type='text' value={value} onChange={onChange} maxLength={3} />
+      </S.Form>
+    </S.AnswerSection>
   )
 }

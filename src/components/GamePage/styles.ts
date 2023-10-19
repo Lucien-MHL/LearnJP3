@@ -1,16 +1,6 @@
 import styled from 'styled-components'
 
 export const S = {
-  Title: styled.p`
-    position: absolute;
-    width: 100%;
-    text-align: center;
-    color: ${({ theme }) => theme.mercury};
-    text-align: center;
-    text-shadow: 0 5px 10px ${({ theme }) => theme.black};
-    font-size: 35px;
-    margin-top: 50px;
-  `,
   GameSection: styled.section`
     aspect-ratio: 4/3;
     width: 850px;
@@ -39,25 +29,17 @@ export const S = {
       height: 100%;
       border: 3px solid ${({ theme }) => theme.mercury};
       border-radius: 25px;
-      filter: drop-shadow(0 5px 10px ${({ theme }) => theme.black});
+      filter: drop-shadow(3px 5px 4px ${({ theme }) => theme.black});
     }
   `,
-  Subject: styled.p`
-    user-select: none;
+  Title: styled.p`
+    position: absolute;
     width: 100%;
-    height: 75%;
+    text-align: center;
     color: ${({ theme }) => theme.mercury};
-    font-size: 250px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-shadow: 0 10px 10px ${({ theme }) => theme.black};
-  `,
-  Answer: styled.main`
-    width: 85%;
-    height: 25%;
-    z-index: 99;
-    margin: auto;
-    display: flex;
+    text-align: center;
+    text-shadow: 0 5px 10px ${({ theme }) => theme.black};
+    font-size: 35px;
+    top: -75px;
   `,
 }

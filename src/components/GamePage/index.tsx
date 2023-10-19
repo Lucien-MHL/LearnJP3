@@ -1,20 +1,23 @@
+import { useTranslation } from 'react-i18next'
 import { S } from './styles'
 import Answer from './Answer'
-import { useTranslation } from 'react-i18next'
+import CorrectAndFail from './CorrectAndFail'
+import Subject from './Subject'
+import Count from './Count'
 
 export default function GamePage() {
   const { t } = useTranslation()
 
   return (
     <>
-      <S.Title>
-        {t('hiragana')} - {t('seion')}
-      </S.Title>
       <S.GameSection>
-        <S.Subject>ツ</S.Subject>
-        <S.Answer>
-          <Answer />
-        </S.Answer>
+        <Count />
+        <S.Title>
+          {t('hiragana')} - {t('seion')}
+        </S.Title>
+        <CorrectAndFail />
+        <Subject />
+        <Answer />
       </S.GameSection>
     </>
   )

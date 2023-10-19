@@ -1,6 +1,13 @@
 import styled from 'styled-components'
 
 export const S = {
+  AnswerSection: styled.main`
+    width: 85%;
+    height: 25%;
+    z-index: 99;
+    margin: auto;
+    display: flex;
+  `,
   Form: styled.form`
     width: 60%;
     height: 50%;
@@ -17,6 +24,7 @@ export const S = {
     font-size: 28px;
     left: 0;
     translate: -110%;
+    text-shadow: 0 8px 10px ${({ theme }) => theme.black};
   `,
   Input: styled.input`
     display: inline-block;

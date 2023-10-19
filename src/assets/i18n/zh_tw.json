@@ -4,5 +4,7 @@
   "katakana": "片假名",
   "seion": "清音",
   "dakuon": "濁音",
-  "insert-answer": "輸入答案:"
+  "insert-answer": "輸入答案:",
+  "correct": "正確",
+  "fail": "錯誤"
 }
