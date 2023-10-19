@@ -11,13 +11,13 @@ export default function HomePage() {
       <S.StageGroup>
         <S.Stage>
           <S.Name>{t('hiragana')} :</S.Name>
-          <Button text={t('seion')} />
-          <Button text={t('dakuon')} />
+          <Button>{t('seion')}</Button>
+          <Button>{t('dakuon')}</Button>
         </S.Stage>
         <S.Stage>
           <S.Name>{t('katakana')} :</S.Name>
-          <Button text={t('seion')} />
-          <Button text={t('dakuon')} />
+          <Button>{t('seion')}</Button>
+          <Button>{t('dakuon')}</Button>
         </S.Stage>
       </S.StageGroup>
     </S.HomeSection>

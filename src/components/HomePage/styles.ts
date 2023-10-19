@@ -1,11 +1,9 @@
 import styled from 'styled-components'
+import { PageSection } from '../../elements/PageSection'
 
 export const S = {
-  HomeSection: styled.section`
+  HomeSection: styled(PageSection)`
     user-select: none;
-    aspect-ratio: 4/3;
-    width: 850px;
-    margin: auto;
     display: flex;
     flex-direction: column;
   `,
