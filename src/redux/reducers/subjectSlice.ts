@@ -18,7 +18,7 @@ export const subjectSlice = createSlice({
   },
 })
 
-// export const { increment, decrement, incrementByAmount } = counterSlice.actions
+// export const { increment, decrement, incrementByAmount } = subjectSlice.actions
 export const selectSubject = (state: RootState) => state.subject
 
 export default subjectSlice.reducer

@@ -1,24 +1,19 @@
+import { useAppSelector } from './redux/hooks'
+import { selectPageById, PageName } from './redux/reducers/pageSlice'
 import HomePage from './components/HomePage'
 import GamePage from './components/GamePage'
 import EndPage from './components/EndPage'
 
 function App() {
-  // TODO: 建置畫面用邏輯，等不需要時即可刪除。
-  const page = {
-    home: 'home',
-    game: 'game',
-    end: 'end',
-  }
+  const currPage = useAppSelector(selectPageById)
 
-  switch (page.home) {
-    case page.home:
-      return <HomePage />
-    case page.game:
+  switch (currPage) {
+    case PageName.game:
       return <GamePage />
-    case page.end:
+    case PageName.end:
       return <EndPage />
     default:
-      break
+      return <HomePage />
   }
 }
 

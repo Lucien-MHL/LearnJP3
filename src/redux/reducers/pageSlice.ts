@@ -1,24 +1,46 @@
-import { createSlice } from '@reduxjs/toolkit'
+import { createSlice, createDraftSafeSelector } from '@reduxjs/toolkit'
+import type { PayloadAction } from '@reduxjs/toolkit'
 import type { RootState } from '../store'
 
+export enum PageName {
+  home = 'home',
+  game = 'game',
+  end = 'end',
+}
+
 interface PageState {
-  currentPage: 'home' | 'game' | 'end'
+  currentPage: PageName
 }
 
 const initialState: PageState = {
-  currentPage: 'home',
+  currentPage: PageName.home,
 }
 
 export const pageSlice = createSlice({
   name: 'page',
   initialState,
   reducers: {
-    // changePage: state => {},
-    // changePageWithDelay: state => {},
+    changePage: (
+      state,
+      { payload }: PayloadAction<PageState['currentPage']>
+    ) => {
+      state.currentPage = payload
+    },
+    changePageWithDelay: (
+      state,
+      { payload }: PayloadAction<PageState['currentPage']>
+    ) => {
+      setTimeout(() => {
+        state.currentPage = payload
+      }, 1500)
+    },
   },
 })
 
-// export const { increment, decrement, incrementByAmount } = counterSlice.actions
-export const selectPage = (state: RootState) => state.page
+export const { changePage, changePageWithDelay } = pageSlice.actions
+export const selectPageById = createDraftSafeSelector(
+  [(state: RootState) => state.page],
+  page => page['currentPage']
+)
 
 export default pageSlice.reducer
