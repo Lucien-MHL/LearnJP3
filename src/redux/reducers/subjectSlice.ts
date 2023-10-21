@@ -1,24 +1,28 @@
-import { createSlice } from '@reduxjs/toolkit'
+import { PayloadAction, createSlice } from '@reduxjs/toolkit'
+import { Keys } from '../../assets/data'
 import type { RootState } from '../store'
 
 interface SubjectState {
-  //   currentPage: 'home' | 'game' | 'end'
+  dataKey?: Keys
 }
 
-const initialState: SubjectState = {
-  //   currentPage: 'home',
-}
+const initialState: SubjectState = {}
 
 export const subjectSlice = createSlice({
   name: 'subject',
   initialState,
   reducers: {
-    // changePage: state => {},
+    setSubjectWithKey: (
+      state,
+      { payload }: PayloadAction<SubjectState['dataKey']>
+    ) => {
+      state.dataKey = payload
+    },
     // changePageWithDelay: state => {},
   },
 })
 
-// export const { increment, decrement, incrementByAmount } = subjectSlice.actions
+export const { setSubjectWithKey } = subjectSlice.actions
 export const selectSubject = (state: RootState) => state.subject
 
 export default subjectSlice.reducer

@@ -6,7 +6,7 @@ interface Item {
   id: string
 }
 
-enum Keys {
+export enum Keys {
   hiraganaSeion = 'hiragana-seion',
   katakanaSeion = 'katakana-seion',
   hiraganaDakuon = 'hiragana-dakuon',

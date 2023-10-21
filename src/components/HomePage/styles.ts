@@ -6,6 +6,46 @@ export const S = {
     user-select: none;
     display: flex;
     flex-direction: column;
+
+    &:has(button.active) {
+      & > ul,
+      & > p {
+        transition: opacity 0.5s linear;
+        opacity: 0;
+      }
+
+      & > .cover {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        background: transparent;
+        z-index: 99;
+      }
+
+      & > .line {
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: transparent;
+        border: 3px solid ${({ theme }) => theme.mercury};
+        border-radius: 25px;
+        filter: drop-shadow(3px 5px 4px ${({ theme }) => theme.black});
+      }
+    }
+  `,
+  AvoidControlCover: styled.div``,
+  Line: styled.div`
+    position: absolute;
+    top: 15%;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 3px;
+    height: 45%;
+    margin: auto;
+    background-color: ${({ theme }) => theme.mercury};
+    box-shadow: -1px 5px 10px ${({ theme }) => theme.black};
+    transition: all 0.75s ease-in-out;
   `,
   Title: styled.p`
     width: 100%;
@@ -23,17 +63,8 @@ export const S = {
     display: flex;
     align-items: center;
     justify-content: space-evenly;
-    margin: auto 0;
-    position: relative;
-
-    &::after {
-      content: '';
-      position: absolute;
-      width: 3px;
-      height: 110%;
-      background-color: ${({ theme }) => theme.mercury};
-      box-shadow: -1px 5px 10px ${({ theme }) => theme.black};
-    }
+    width: 100%;
+    margin: auto;
   `,
   Stage: styled.li`
     display: flex;
@@ -48,5 +79,6 @@ export const S = {
     color: ${({ theme }) => theme.mercury};
     font-size: 30px;
     text-shadow: 0 5px 5px ${({ theme }) => theme.black};
+    padding: 0 8px;
   `,
 }

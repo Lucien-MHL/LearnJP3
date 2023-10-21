@@ -1,11 +1,20 @@
+import React, { Ref } from 'react'
 import { S } from './styles'
+
+export type ClickButtonEvent = React.MouseEvent<HTMLButtonElement>
 
 type Props = {
   children: React.ReactNode
-  onClick?: (e: React.MouseEvent<HTMLElement>) => void
+  onClick?: (event: ClickButtonEvent) => void
 }
 
-export default function Button(props: Props) {
+const Button = React.forwardRef((props: Props, ref: Ref<HTMLButtonElement>) => {
   const { children, onClick } = props
-  return <S.Button onClick={onClick}>{children}</S.Button>
-}
+  return (
+    <S.Button tabIndex={-1} onClick={onClick} ref={ref}>
+      {children}
+    </S.Button>
+  )
+})
+
+export default Button

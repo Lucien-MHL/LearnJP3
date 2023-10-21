@@ -9,21 +9,19 @@ export default function GamePage() {
   const { t } = useTranslation()
 
   return (
-    <>
-      <S.GameSection>
-        <Count />
-        <S.Title>
-          {t('hiragana')} - {t('seion')}
-        </S.Title>
-        <CorrectAndFail
-          placement={{
-            left: '80%',
-            bottom: 30,
-          }}
-        />
-        <Subject />
-        <Answer />
-      </S.GameSection>
-    </>
+    <S.GameSection>
+      <S.Title>
+        {t('hiragana')} - {t('seion')}
+      </S.Title>
+      <Subject />
+      <Count />
+      <Answer />
+      <CorrectAndFail
+        placement={{
+          left: '80%',
+          bottom: 30,
+        }}
+      />
+    </S.GameSection>
   )
 }

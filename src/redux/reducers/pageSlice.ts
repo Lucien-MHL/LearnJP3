@@ -20,27 +20,14 @@ export const pageSlice = createSlice({
   name: 'page',
   initialState,
   reducers: {
-    changePage: (
-      state,
-      { payload }: PayloadAction<PageState['currentPage']>
-    ) => {
+    changePage: (state, { payload }: PayloadAction<PageName>) => {
       state.currentPage = payload
-    },
-    changePageWithDelay: (
-      state,
-      { payload }: PayloadAction<PageState['currentPage']>
-    ) => {
-      setTimeout(() => {
-        state.currentPage = payload
-      }, 1500)
     },
   },
 })
 
-export const { changePage, changePageWithDelay } = pageSlice.actions
-export const selectPageById = createDraftSafeSelector(
-  [(state: RootState) => state.page],
-  page => page['currentPage']
-)
+export const selectPageByKey = (key: keyof PageState) =>
+  createDraftSafeSelector([(state: RootState) => state.page], page => page[key])
 
+export const { changePage } = pageSlice.actions
 export default pageSlice.reducer

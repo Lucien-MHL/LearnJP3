@@ -3,6 +3,18 @@ import { PageSection } from '../../elements/PageSection'
 
 export const S = {
   GameSection: styled(PageSection)`
+    @keyframes appear {
+      to {
+        opacity: 1;
+      }
+    }
+
+    & > *,
+    &::before {
+      opacity: 0;
+      animation: appear 1s forwards ease-in-out;
+    }
+
     &::before {
       content: '';
       width: 85%;
@@ -16,16 +28,18 @@ export const S = {
       margin: auto;
     }
 
-    &::after {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      border: 3px solid ${({ theme }) => theme.mercury};
-      border-radius: 25px;
-      filter: drop-shadow(3px 5px 4px ${({ theme }) => theme.black});
+    @media (min-width: 850px) {
+      &::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border: 3px solid ${({ theme }) => theme.mercury};
+        border-radius: 25px;
+        filter: drop-shadow(3px 5px 4px ${({ theme }) => theme.black});
+      }
     }
   `,
   Title: styled.p`
