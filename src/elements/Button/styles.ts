@@ -14,9 +14,13 @@ export const S = {
     transition: 0.15s ease-in-out;
 
     &:hover {
-      translate: 1px -2px;
-      box-shadow: -1px 12px 10px ${({ theme }) => theme.mine_shaft};
+      translate: 3px -4px;
+      box-shadow: -3px 14px 10px ${({ theme }) => theme.mine_shaft};
       font-weight: bold;
+    }
+
+    &:active {
+      border-style: outset;
     }
   `,
 }
