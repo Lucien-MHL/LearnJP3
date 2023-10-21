@@ -1,8 +1,8 @@
-import data from '../../assets/data'
+import data, { Keys } from '../../assets/data'
 
 interface IItem {
   text: string
-  dataKey: string
+  dataKey: Keys
 }
 
 interface IGroup {
@@ -19,7 +19,7 @@ function useStage() {
 
   const stage: IItem[] = keys.map(key => {
     const [_, last] = key.split('-')
-    return { text: last, dataKey: key }
+    return { text: last, dataKey: key as Keys }
   })
 
   const list: IGroup[] = character.map(char => {

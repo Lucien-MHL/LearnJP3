@@ -1,16 +1,16 @@
 import data from './data.json'
 
-interface Item {
+export interface Item {
   word: string
   pronounce: string
   id: string
 }
 
 export enum Keys {
-  hiraganaSeion = 'hiragana-seion',
-  katakanaSeion = 'katakana-seion',
-  hiraganaDakuon = 'hiragana-dakuon',
-  katakanaDakuon = 'katakana-dakuon',
+  'hiragana-seion' = 'hiragana-seion',
+  'katakana-seion' = 'katakana-seion',
+  'hiragana-dakuon' = 'hiragana-dakuon',
+  'katakana-dakuon' = 'katakana-dakuon',
 }
 
 export default data as Record<Keys, Item[]>

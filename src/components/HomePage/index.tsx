@@ -5,6 +5,8 @@ import Button from '../../elements/Button'
 import useStage from './useStage'
 import { S } from './styles'
 import { changePage, PageName } from '../../redux/reducers/pageSlice'
+import { setSubjectWithKey } from '../../redux/reducers/subjectSlice'
+import { Keys } from '../../assets/data'
 
 type OnClick = (dataKey: string) => void
 
@@ -16,6 +18,7 @@ export default function HomePage() {
 
   const onClick: OnClick = dataKey => {
     buttonRef.current?.classList.toggle('active')
+    dispatch(setSubjectWithKey(dataKey as Keys))
     setTimeout(() => {
       dispatch(changePage(PageName.game))
       buttonRef.current?.classList.toggle('active')
