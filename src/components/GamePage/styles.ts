@@ -9,15 +9,20 @@ export const S = {
       }
     }
 
-    & > *,
-    &::before {
+    @keyframes toWide {
+      to {
+        width: 85%;
+      }
+    }
+
+    & > * {
       opacity: 0;
       animation: appear 1s forwards ease-in-out;
     }
 
     &::before {
       content: '';
-      width: 85%;
+      width: 0;
       height: 3px;
       background-color: ${({ theme }) => theme.mercury};
       box-shadow: 0 5px 10px ${({ theme }) => theme.black};
@@ -26,6 +31,7 @@ export const S = {
       left: 0;
       right: 0;
       margin: auto;
+      animation: toWide 1s forwards ease-in-out;
     }
 
     @media (min-width: 850px) {
