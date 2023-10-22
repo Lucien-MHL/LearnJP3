@@ -2,15 +2,15 @@ import { useTranslation } from 'react-i18next'
 import { useAppSelector } from '../../redux/hooks'
 import { S } from './styles'
 import Answer from './Answer'
-import CorrectAndFail from '../../elements/CorrectAndFail'
+// import CorrectAndFail from '../../elements/CorrectAndFail'
 import Subject from './Subject'
 import Count from './Count'
-import { selectSubjectInfoByKey } from '../../redux/reducers/subjectSlice'
+import { getSubjectInfoByKey } from '../../redux/reducers/subjectSlice'
 
 export default function GamePage() {
   const { t } = useTranslation()
-  const title = useAppSelector(selectSubjectInfoByKey('title')) as string
-  const [firstWord, secondWord] = title?.split('-')
+  const title = useAppSelector(getSubjectInfoByKey('title'))
+  const [firstWord, secondWord] = title.split('-')
 
   return (
     <S.GameSection>

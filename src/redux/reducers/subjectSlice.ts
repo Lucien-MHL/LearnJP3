@@ -7,19 +7,19 @@ import { Keys } from '../../assets/data'
 import type { RootState } from '../store'
 import data, { Item } from '../../assets/data'
 
-interface Options {
+type Options = {
   id: string
   text: string
 }
 
-interface GameInfo {
-  title?: string
-  topic?: string
-  total?: number
-  count?: number
+type GameInfo = {
+  title: string
+  topic: string
+  total: number
+  count: number
   correct?: string[]
   wrong?: string[]
-  pronounce?: {
+  pronounce: {
     id: string
     answer: string
     options?: Options[]
@@ -36,7 +36,16 @@ interface SubjectState {
 const initialState: SubjectState = {
   data: [],
   index: 0,
-  gameInfo: {},
+  gameInfo: {
+    title: '',
+    topic: '',
+    total: 0,
+    count: 0,
+    pronounce: {
+      id: '',
+      answer: '',
+    },
+  },
 }
 
 function shuffleArray<T>(array: T[]): T[] {
@@ -66,15 +75,20 @@ export const subjectSlice = createSlice({
           id: shuffledData[state.index].id,
         },
       }
+      state.index = state.index + 1
     },
   },
 })
 
-export const selectSubjectInfoByKey = (key: keyof GameInfo) =>
+export const getSubjectInfoByKey = <K extends keyof GameInfo>(key: K) =>
   createDraftSafeSelector(
-    [(state: RootState) => state.subject],
-    (subject: SubjectState) => subject.gameInfo[key]
+    [(state: RootState) => state.subject.gameInfo],
+    (gameInfo: GameInfo) => gameInfo[key]
   )
+// export const getSubjectInfoByKey =
+//   <K extends keyof GameInfo>(key: K) =>
+//   (state: RootState) =>
+//     state.subject.gameInfo[key]
 
 export const { setSubjectWithKey } = subjectSlice.actions
 export default subjectSlice.reducer
