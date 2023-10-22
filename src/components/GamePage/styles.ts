@@ -52,4 +52,25 @@ export const S = {
     font-size: 35px;
     top: -75px;
   `,
+  Subject: styled.p`
+    user-select: none;
+    width: 100%;
+    height: 75%;
+    color: ${({ theme }) => theme.mercury};
+    font-size: 250px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-shadow: 0 10px 10px ${({ theme }) => theme.black};
+  `,
+  Counter: styled.p`
+    position: absolute;
+    top: 67%;
+    left: 50%;
+    translate: -50%;
+    color: ${({ theme }) => theme.mercury};
+    text-shadow: 0 5px 4px ${({ theme }) => theme.black};
+    font-size: 30px;
+    font-weight: bold;
+  `,
 }
