@@ -31,7 +31,7 @@ export const S = {
       left: 0;
       right: 0;
       margin: auto;
-      animation: toWide 1s forwards ease-in-out;
+      animation: toWide 0.75s forwards ease-in-out;
     }
 
     @media (min-width: 850px) {

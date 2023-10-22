@@ -85,10 +85,6 @@ export const getSubjectInfoByKey = <K extends keyof GameInfo>(key: K) =>
     [(state: RootState) => state.subject.gameInfo],
     (gameInfo: GameInfo) => gameInfo[key]
   )
-// export const getSubjectInfoByKey =
-//   <K extends keyof GameInfo>(key: K) =>
-//   (state: RootState) =>
-//     state.subject.gameInfo[key]
 
 export const { setSubjectWithKey } = subjectSlice.actions
 export default subjectSlice.reducer
