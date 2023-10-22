@@ -7,6 +7,8 @@ import { Keys } from '../../assets/data'
 import type { RootState } from '../store'
 import data, { Item } from '../../assets/data'
 
+type Payload<T> = PayloadAction<T>
+
 type Options = {
   id: string
   text: string
@@ -17,8 +19,8 @@ type GameInfo = {
   topic: string
   total: number
   count: number
-  correct?: string[]
-  wrong?: string[]
+  correct: string[]
+  wrong: string[]
   pronounce: {
     id: string
     answer: string
@@ -41,6 +43,8 @@ const initialState: SubjectState = {
     topic: '',
     total: 0,
     count: 0,
+    correct: [],
+    wrong: [],
     pronounce: {
       id: '',
       answer: '',
@@ -61,7 +65,7 @@ export const subjectSlice = createSlice({
   name: 'subject',
   initialState,
   reducers: {
-    setSubjectWithKey: (state, { payload }: PayloadAction<Keys>) => {
+    setSubjectWithKey: (state, { payload }: Payload<Keys>) => {
       const shuffledData = shuffleArray(data[payload])
       state.dataKey = payload
       state.data = shuffledData
@@ -70,10 +74,28 @@ export const subjectSlice = createSlice({
         topic: shuffledData[state.index].word,
         total: shuffledData.length,
         count: state.index + 1,
+        correct: [],
+        wrong: [],
         pronounce: {
           answer: shuffledData[state.index].pronounce,
           id: shuffledData[state.index].id,
         },
+      }
+      state.index = state.index + 1
+    },
+    setNextAndRecord: (
+      state,
+      { payload }: Payload<{ id: string; isCorrect: boolean }>
+    ) => {
+      const item = state.data[state.index]
+      state.gameInfo.topic = item.word
+      state.gameInfo.count = state.index + 1
+      state.gameInfo.pronounce.answer = item.pronounce
+      state.gameInfo.pronounce.id = item.id
+      if (payload.isCorrect) {
+        state.gameInfo.correct.splice(0, 0, payload.id)
+      } else {
+        state.gameInfo.wrong.splice(0, 0, payload.id)
       }
       state.index = state.index + 1
     },
@@ -86,5 +108,5 @@ export const getSubjectInfoByKey = <K extends keyof GameInfo>(key: K) =>
     (gameInfo: GameInfo) => gameInfo[key]
   )
 
-export const { setSubjectWithKey } = subjectSlice.actions
+export const { setSubjectWithKey, setNextAndRecord } = subjectSlice.actions
 export default subjectSlice.reducer
