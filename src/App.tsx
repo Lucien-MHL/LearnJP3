@@ -5,7 +5,7 @@ import GamePage from './components/GamePage'
 import EndPage from './components/EndPage'
 
 function App() {
-  const currPage = useAppSelector(selectPageByKey('currentPage')) as PageName
+  const currPage = useAppSelector(selectPageByKey('currentPage'))
 
   switch (currPage) {
     case PageName.game:

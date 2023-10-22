@@ -26,7 +26,7 @@ export const pageSlice = createSlice({
   },
 })
 
-export const selectPageByKey = (key: keyof PageState) =>
+export const selectPageByKey = <K extends keyof PageState>(key: K) =>
   createDraftSafeSelector([(state: RootState) => state.page], page => page[key])
 
 export const { changePage } = pageSlice.actions
