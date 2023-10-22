@@ -2,7 +2,7 @@ import { useTranslation } from 'react-i18next'
 import { useAppSelector } from '../../redux/hooks'
 import { S } from './styles'
 import Answer from './Answer'
-// import CorrectAndFail from '../../elements/CorrectAndFail'
+import CorrectAndFail from '../../elements/CorrectAndFail'
 import { getSubjectInfoByKey } from '../../redux/reducers/subjectSlice'
 
 export default function GamePage() {
@@ -21,12 +21,12 @@ export default function GamePage() {
       <S.Subject>{topic}</S.Subject>
       <S.Counter>{`- ${count} / ${total} -`}</S.Counter>
       <Answer />
-      {/* <CorrectAndFail
+      <CorrectAndFail
         placement={{
-          left: '80%',
+          left: '75%',
           bottom: 30,
         }}
-      /> */}
+      />
     </S.GameSection>
   )
 }

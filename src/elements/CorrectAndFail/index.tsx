@@ -1,3 +1,5 @@
+import { useAppSelector } from '../../redux/hooks'
+import { getSubjectInfoByKey } from '../../redux/reducers/subjectSlice'
 import { useTranslation } from 'react-i18next'
 import { useTheme } from 'styled-components'
 import { S, Props } from './styles'
@@ -5,27 +7,23 @@ import { S, Props } from './styles'
 export default function CorrectAndFail({ placement }: Props) {
   const { t } = useTranslation()
   const theme = useTheme()
-  const cfList: { color: string; title: string; number: number }[] = [
-    {
-      color: theme.green,
-      title: t('correct'),
-      number: 23,
-    },
-    {
-      color: theme.red,
-      title: t('fail'),
-      number: 12,
-    },
-  ]
+  const correct = useAppSelector(getSubjectInfoByKey('correct'))
+  const wrong = useAppSelector(getSubjectInfoByKey('wrong'))
 
   return (
     <S.Section $p={placement}>
-      {cfList.map((item, i) => (
-        <S.Item key={i}>
-          <S.Text>{item.title}</S.Text>
-          <S.Text $color={item.color}>{item.number}</S.Text>
+      {correct.length !== 0 && (
+        <S.Item>
+          <S.Text>{t('correct')}</S.Text>
+          <S.Text $color={theme.green}>{correct.length}</S.Text>
         </S.Item>
-      ))}
+      )}
+      {wrong.length !== 0 && (
+        <S.Item>
+          <S.Text>{t('fail')}</S.Text>
+          <S.Text $color={theme.red}>{wrong.length}</S.Text>
+        </S.Item>
+      )}
     </S.Section>
   )
 }
