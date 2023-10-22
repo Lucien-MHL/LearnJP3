@@ -24,7 +24,13 @@ const AnswerByInput: React.FC<Props> = ({ onSubmit }) => {
   return (
     <S.Form onSubmit={handleSubmit}>
       <S.Text>{t('insert-answer')}</S.Text>
-      <S.Input type='text' value={value} onChange={onChange} maxLength={3} />
+      <S.Input
+        type='text'
+        value={value}
+        onChange={onChange}
+        maxLength={3}
+        autoFocus
+      />
     </S.Form>
   )
 }
