@@ -45,6 +45,7 @@ export const S = {
         border: 3px solid ${({ theme }) => theme.mercury};
         border-radius: 25px;
         filter: drop-shadow(3px 5px 4px ${({ theme }) => theme.black});
+        pointer-events: none;
       }
     }
   `,

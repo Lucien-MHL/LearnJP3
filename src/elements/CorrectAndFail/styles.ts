@@ -40,5 +40,26 @@ export const S = {
     letter-spacing: 2px;
     text-shadow: 0 10px 10px ${({ theme }) => theme.black};
     font-size: 20px;
+    position: relative;
+  `,
+  Bounce: styled.span`
+    display: flex;
+    justify-content: center;
+    font-size: 30px;
+    font-weight: bold;
+    letter-spacing: 3px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    opacity: 1;
+
+    @keyframes show {
+      to {
+        top: -75px;
+        opacity: 0;
+      }
+    }
+    animation: show 0.75s ease-out forwards;
   `,
 }
