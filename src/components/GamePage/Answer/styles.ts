@@ -8,7 +8,6 @@ export const S = {
     }
     width: 85%;
     height: 25%;
-    z-index: 99;
     margin: auto;
     display: flex;
   `,

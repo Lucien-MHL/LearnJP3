@@ -1,20 +1,12 @@
 import styled from 'styled-components'
 
-export type Props = {
-  placement: {
-    top?: number | string
-    left?: number | string
-    right?: number | string
-    bottom?: number | string
-  }
-}
-
 export const S = {
-  Section: styled.ul<{ $p: Props['placement'] }>`
+  Section: styled.ul`
     user-select: none;
     list-style: none;
     position: absolute;
-    ${({ $p }) => $p}
+    left: 75%;
+    bottom: 30px;
     display: flex;
 
     & > li:first-child {

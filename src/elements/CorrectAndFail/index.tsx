@@ -2,16 +2,16 @@ import { getSubjectInfoByKey } from '../../redux/reducers/subjectSlice'
 import { useAppSelector } from '../../redux/hooks'
 import { useTranslation } from 'react-i18next'
 import { useTheme } from 'styled-components'
-import { S, Props } from './styles'
+import { S } from './styles'
 
-export default function CorrectAndFail({ placement }: Props) {
+export default function CorrectAndFail() {
   const { t } = useTranslation()
   const theme = useTheme()
   const correct = useAppSelector(getSubjectInfoByKey('correct'))
   const wrong = useAppSelector(getSubjectInfoByKey('wrong'))
 
   return (
-    <S.Section $p={placement}>
+    <S.Section>
       {correct.length !== 0 && (
         <S.Item>
           <S.Text>{t('correct')}</S.Text>

@@ -15,7 +15,7 @@ type Options = {
 }
 
 type GameInfo = {
-  title: string
+  title: Keys | string
   topic: string
   total: number
   count: number
@@ -32,7 +32,6 @@ interface SubjectState {
   data: Item[]
   index: number
   gameInfo: GameInfo
-  dataKey?: Keys
 }
 
 const initialState: SubjectState = {
@@ -67,8 +66,8 @@ export const subjectSlice = createSlice({
   reducers: {
     setSubjectWithKey: (state, { payload }: Payload<Keys>) => {
       const shuffledData = shuffleArray(data[payload])
-      state.dataKey = payload
       state.data = shuffledData
+      state.index = 0
       state.gameInfo = {
         title: payload,
         topic: shuffledData[state.index].word,
@@ -87,17 +86,19 @@ export const subjectSlice = createSlice({
       state,
       { payload }: Payload<{ id: string; isCorrect: boolean }>
     ) => {
-      const item = state.data[state.index]
-      state.gameInfo.topic = item.word
-      state.gameInfo.count = state.index + 1
-      state.gameInfo.pronounce.answer = item.pronounce
-      state.gameInfo.pronounce.id = item.id
-      if (payload.isCorrect) {
-        state.gameInfo.correct.splice(0, 0, payload.id)
-      } else {
-        state.gameInfo.wrong.splice(0, 0, payload.id)
+      if (state.gameInfo.count < state.gameInfo.total) {
+        const item = state.data[state.index]
+        state.gameInfo.topic = item.word
+        state.gameInfo.pronounce.answer = item.pronounce
+        state.gameInfo.pronounce.id = item.id
+        state.gameInfo.count = state.index + 1
       }
       state.index = state.index + 1
+      state.gameInfo[payload.isCorrect ? 'correct' : 'wrong'].splice(
+        0,
+        0,
+        payload.id
+      )
     },
   },
 })
