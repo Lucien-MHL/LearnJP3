@@ -65,7 +65,7 @@ export const subjectSlice = createSlice({
   initialState,
   reducers: {
     setSubjectWithKey: (state, { payload }: Payload<Keys>) => {
-      const shuffledData = shuffleArray(data[payload])
+      const shuffledData = shuffleArray(data[payload]).slice(0, 5) // TODO: 測試完後要把 Slice 移除。
       state.data = shuffledData
       state.index = 0
       state.gameInfo = {
