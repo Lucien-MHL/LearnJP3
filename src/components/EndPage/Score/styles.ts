@@ -3,6 +3,7 @@ import styled from 'styled-components'
 export const S = {
   Score: styled.section`
     position: relative;
+    margin: auto;
   `,
   Number: styled.p`
     color: ${({ theme }) => theme.mercury};

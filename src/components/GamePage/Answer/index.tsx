@@ -12,10 +12,13 @@ export default function Answer() {
 
   const onSubmit = (inputValue: string, setInputValue: SetValue) => {
     if (!inputValue) return // 若為空值則不繼續執行
+    const payload = {
+      id: pronounce.id,
+      reply: inputValue,
+      answer: pronounce.answer,
+    }
 
-    const isCorrect = pronounce.answer === inputValue
-    const id = pronounce.id
-    dispatch(setNextAndRecord({ id, isCorrect }))
+    dispatch(setNextAndRecord({ ...payload }))
     setInputValue('')
   }
 

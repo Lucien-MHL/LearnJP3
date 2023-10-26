@@ -6,8 +6,9 @@ import { S } from './styles'
 
 export default function Score() {
   const { t } = useTranslation()
-  const correct = useAppSelector(getSubjectInfoByKey('correct'))
+  const record = useAppSelector(getSubjectInfoByKey('record'))
   const total = useAppSelector(getSubjectInfoByKey('total'))
+  const correct = record.filter(({ answerStatus }) => answerStatus)
   const score = +((correct.length / total) * 100).toFixed(1)
 
   const stampTitle = useMemo(() => {

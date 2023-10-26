@@ -7,8 +7,9 @@ import { S } from './styles'
 export default function CorrectAndFail() {
   const { t } = useTranslation()
   const theme = useTheme()
-  const correct = useAppSelector(getSubjectInfoByKey('correct'))
-  const wrong = useAppSelector(getSubjectInfoByKey('wrong'))
+  const record = useAppSelector(getSubjectInfoByKey('record'))
+  const correct = record.filter(item => item.answerStatus)
+  const wrong = record.filter(item => !item.answerStatus)
 
   return (
     <S.Section>

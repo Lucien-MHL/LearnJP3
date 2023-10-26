@@ -9,7 +9,14 @@ import data, { Item } from '../../assets/data'
 
 type Payload<T> = PayloadAction<T>
 
-type Options = {
+type Record = {
+  id: string
+  reply: string
+  answer: string
+  answerStatus: boolean
+}
+
+type Option = {
   id: string
   text: string
 }
@@ -19,12 +26,11 @@ type GameInfo = {
   topic: string
   total: number
   count: number
-  correct: string[]
-  wrong: string[]
+  record: Record[]
   pronounce: {
     id: string
     answer: string
-    options?: Options[]
+    options?: Option[]
   }
 }
 
@@ -42,8 +48,7 @@ const initialState: SubjectState = {
     topic: '',
     total: 0,
     count: 0,
-    correct: [],
-    wrong: [],
+    record: [],
     pronounce: {
       id: '',
       answer: '',
@@ -73,8 +78,7 @@ export const subjectSlice = createSlice({
         topic: shuffledData[state.index].word,
         total: shuffledData.length,
         count: state.index + 1,
-        correct: [],
-        wrong: [],
+        record: [],
         pronounce: {
           answer: shuffledData[state.index].pronounce,
           id: shuffledData[state.index].id,
@@ -84,7 +88,7 @@ export const subjectSlice = createSlice({
     },
     setNextAndRecord: (
       state,
-      { payload }: Payload<{ id: string; isCorrect: boolean }>
+      { payload }: Payload<{ id: string; answer: string; reply: string }>
     ) => {
       if (state.gameInfo.count < state.gameInfo.total) {
         const item = state.data[state.index]
@@ -94,11 +98,12 @@ export const subjectSlice = createSlice({
         state.gameInfo.count = state.index + 1
       }
       state.index = state.index + 1
-      state.gameInfo[payload.isCorrect ? 'correct' : 'wrong'].splice(
-        0,
-        0,
-        payload.id
-      )
+      state.gameInfo.record.splice(0, 0, {
+        id: payload.id,
+        reply: payload.reply,
+        answer: payload.answer,
+        answerStatus: payload.reply === payload.answer,
+      })
     },
   },
 })
