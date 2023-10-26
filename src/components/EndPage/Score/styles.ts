@@ -19,6 +19,7 @@ export const S = {
     user-select: none;
     display: inline-block;
     word-break: keep-all;
+    font-family: cursive;
     font-size: 30px;
     letter-spacing: 5px;
     color: ${({ theme }) => theme.red};
