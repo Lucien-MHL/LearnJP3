@@ -1,5 +1,5 @@
-import { getSubjectInfoByKey } from '../../redux/reducers/subjectSlice'
-import { useAppSelector } from '../../redux/hooks'
+import { getSubjectInfoByKey } from '../../../redux/reducers/subjectSlice'
+import { useAppSelector } from '../../../redux/hooks'
 import { useTranslation } from 'react-i18next'
 import { useTheme } from 'styled-components'
 import { S } from './styles'
