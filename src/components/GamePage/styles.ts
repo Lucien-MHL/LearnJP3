@@ -34,6 +34,15 @@ export const S = {
       animation: toWide 0.75s forwards ease-in-out;
     }
 
+    @media (max-width: 850px) {
+      &::before {
+        top: 65%;
+        box-shadow: 0 5px 10px ${({ theme }) => theme.black},
+          0 140px ${({ theme }) => theme.mercury},
+          0 145px 10px ${({ theme }) => theme.black};
+      }
+    }
+
     @media (min-width: 850px) {
       &::after {
         content: '';
@@ -58,6 +67,11 @@ export const S = {
     text-shadow: 0 5px 10px ${({ theme }) => theme.black};
     font-size: 35px;
     top: -75px;
+
+    @media (max-width: 850px) {
+      font-size: 28px;
+      top: -25px;
+    }
   `,
   Subject: styled.p`
     user-select: none;
@@ -69,6 +83,11 @@ export const S = {
     align-items: center;
     justify-content: center;
     text-shadow: 0 10px 10px ${({ theme }) => theme.black};
+
+    @media (max-width: 850px) {
+      font-size: 200px;
+      height: 60%;
+    }
   `,
   Counter: styled.p`
     position: absolute;
@@ -79,5 +98,11 @@ export const S = {
     text-shadow: 0 5px 4px ${({ theme }) => theme.black};
     font-size: 30px;
     font-weight: bold;
+
+    @media (max-width: 850px) {
+      top: 58%;
+      font-size: 20px;
+      text-shadow: 0 3px 5px ${({ theme }) => theme.black};
+    }
   `,
 }

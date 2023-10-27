@@ -12,6 +12,13 @@ export const S = {
     & > li:first-child {
       margin-right: 24px;
     }
+
+    /* TODO: mobile view style */
+    /* @media (max-width: 850px) {
+      position: static;
+      justify-content: center;
+      margin-top: 15px;
+    } */
   `,
   Item: styled.li`
     display: flex;
