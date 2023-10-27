@@ -13,6 +13,7 @@ type Record = {
   id: string
   reply: string
   answer: string
+  word: string
   answerStatus: boolean
 }
 
@@ -70,7 +71,7 @@ export const subjectSlice = createSlice({
   initialState,
   reducers: {
     setSubjectWithKey: (state, { payload }: Payload<Keys>) => {
-      const shuffledData = shuffleArray(data[payload]).slice(0, 5) // TODO: 測試完後要把 Slice 移除。
+      const shuffledData = shuffleArray(data[payload])
       state.data = shuffledData
       state.index = 0
       state.gameInfo = {
@@ -90,6 +91,13 @@ export const subjectSlice = createSlice({
       state,
       { payload }: Payload<{ id: string; answer: string; reply: string }>
     ) => {
+      state.gameInfo.record.splice(0, 0, {
+        id: payload.id,
+        reply: payload.reply,
+        answer: payload.answer,
+        word: state.gameInfo.topic,
+        answerStatus: payload.reply === payload.answer,
+      })
       if (state.gameInfo.count < state.gameInfo.total) {
         const item = state.data[state.index]
         state.gameInfo.topic = item.word
@@ -98,12 +106,6 @@ export const subjectSlice = createSlice({
         state.gameInfo.count = state.index + 1
       }
       state.index = state.index + 1
-      state.gameInfo.record.splice(0, 0, {
-        id: payload.id,
-        reply: payload.reply,
-        answer: payload.answer,
-        answerStatus: payload.reply === payload.answer,
-      })
     },
   },
 })
