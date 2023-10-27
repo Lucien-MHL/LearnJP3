@@ -28,7 +28,6 @@ export default function HomePage() {
   return (
     <S.HomeSection>
       <S.AvoidControlCover className='cover' />
-      <S.Line className='line' />
       <S.Title>{t('title')}</S.Title>
       <S.StageGroup>
         {list.map((e, i) => (
