@@ -16,5 +16,6 @@
     "3": "要確定捏",
     "4": "認真的嗎?"
   },
-  "record-board": "記錄板"
+  "record-board": "記錄板",
+  "tell_the_true": "<textA>{{word}}</textA>的發音是<textB>{{answer}}</textB>不是<textC>{{reply}}</textC>"
 }

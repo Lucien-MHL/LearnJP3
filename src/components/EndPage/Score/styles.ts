@@ -31,7 +31,7 @@ export const S = {
     left: 0;
     border: 3px solid ${({ theme }) => theme.red};
     border-radius: 10px;
-    filter: drop-shadow(0 5px 10px black);
+    filter: drop-shadow(0 5px 10px ${({ theme }) => theme.black});
     opacity: 0;
     transform: rotate(-30deg) scale(5);
     animation: stamped 0.5s ease-in forwards;

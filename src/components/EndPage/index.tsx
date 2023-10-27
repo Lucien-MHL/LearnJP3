@@ -1,7 +1,7 @@
 import { PageName, changePage } from '../../redux/reducers/pageSlice'
 import { useAppSelector } from '../../redux/hooks'
 import { useTranslation } from 'react-i18next'
-import RecordBoard from './RecordBoard.tsx'
+import RecordBoard from './RecordBoard'
 import Button from '../../elements/Button'
 import { useDispatch } from 'react-redux'
 import { Keys } from '../../assets/data'
@@ -10,7 +10,7 @@ import {
   getSubjectInfoByKey,
   setSubjectWithKey,
 } from '../../redux/reducers/subjectSlice'
-import Score from './Score/index.tsx'
+import Score from './Score'
 
 export default function EndPage() {
   const { t } = useTranslation()
@@ -28,7 +28,7 @@ export default function EndPage() {
   return (
     <S.EndSection>
       <Score />
-      {/* <RecordBoard recordData={{ correct, wrong, title }} /> */}
+      <RecordBoard />
       <S.ButtonGroup>
         <Button onClick={onRetryClick}>{t('retry')}</Button>
         <Button onClick={onBackToHomeClick}>{t('back-to-home')}</Button>
