@@ -1,16 +1,28 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import { PageSection } from '../../elements/PageSection'
 
 export const S = {
-  GameSection: styled(PageSection)`
+  GameSection: styled(PageSection)<{ $isEnd: boolean }>`
+    ${({ $isEnd }) =>
+      $isEnd
+        ? css`
+            opacity: 1;
+            animation: disappear 1s forwards linear;
+          `
+        : css`
+            opacity: 0;
+            animation: appear 1s forwards linear;
+          `}
     @keyframes appear {
       to {
         opacity: 1;
       }
     }
-
-    opacity: 0;
-    animation: appear 1s 0.5s forwards ease-in;
+    @keyframes disappear {
+      to {
+        opacity: 0;
+      }
+    }
 
     &::before {
       content: '';

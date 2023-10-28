@@ -11,18 +11,29 @@ import {
   setSubjectWithKey,
 } from '../../redux/reducers/subjectSlice'
 import Score from './Score'
+import { useRef } from 'react'
 
 export default function EndPage() {
   const { t } = useTranslation()
   const dispatch = useDispatch()
   const title = useAppSelector(getSubjectInfoByKey('title'))
+  const retryRef = useRef<HTMLButtonElement>(null)
+  const backToHomeRef = useRef<HTMLButtonElement>(null)
 
   const onRetryClick = () => {
-    dispatch(setSubjectWithKey(title as Keys))
-    dispatch(changePage(PageName.game))
+    retryRef.current?.classList.add('active')
+    setTimeout(() => {
+      dispatch(setSubjectWithKey(title as Keys))
+      dispatch(changePage(PageName.game))
+      retryRef.current?.classList.remove('active')
+    }, 500)
   }
   const onBackToHomeClick = () => {
-    dispatch(changePage(PageName.home))
+    backToHomeRef.current?.classList.add('active')
+    setTimeout(() => {
+      dispatch(changePage(PageName.home))
+      backToHomeRef.current?.classList.remove('active')
+    }, 500)
   }
 
   return (
@@ -30,8 +41,12 @@ export default function EndPage() {
       <Score />
       <RecordBoard />
       <S.ButtonGroup>
-        <Button onClick={onRetryClick}>{t('retry')}</Button>
-        <Button onClick={onBackToHomeClick}>{t('back-to-home')}</Button>
+        <Button ref={retryRef} onClick={onRetryClick}>
+          {t('retry')}
+        </Button>
+        <Button ref={backToHomeRef} onClick={onBackToHomeClick}>
+          {t('back-to-home')}
+        </Button>
       </S.ButtonGroup>
     </S.EndSection>
   )

@@ -6,6 +6,14 @@ export const S = {
     user-select: none;
     display: flex;
     flex-direction: column;
+    @keyframes appear {
+      to {
+        opacity: 1;
+      }
+    }
+
+    opacity: 0;
+    animation: appear 1s forwards ease-in;
 
     &:has(button.active) {
       & > ul,

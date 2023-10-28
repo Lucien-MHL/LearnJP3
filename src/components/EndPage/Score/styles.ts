@@ -34,7 +34,7 @@ export const S = {
     filter: drop-shadow(0 5px 10px ${({ theme }) => theme.black});
     opacity: 0;
     transform: rotate(-30deg) scale(5);
-    animation: stamped 0.5s ease-in forwards;
+    animation: stamped 0.5s 0.5s ease-in forwards;
 
     @keyframes stamped {
       0% {
@@ -44,8 +44,7 @@ export const S = {
       10% {
         opacity: 0.5;
         top: 100%;
-        transform: scale(6);
-        transition: all 0.3s cubic-bezier(0.6, 0.04, 0.98, 0.335);
+        transform: scale(4);
       }
       100% {
         opacity: 1;
