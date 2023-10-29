@@ -42,7 +42,7 @@ export const S = {
   Text: styled.p<{ $color?: string }>`
     @font-face {
       font-family: MPLUSRounded1c;
-      src: url('./font/MPLUSRounded1c-Medium.ttf');
+      src: url(./font/MPLUSRounded1c-Medium.ttf);
     }
     font-family: MPLUSRounded1c, sans-serif;
     color: ${({ $color, theme }) => ($color ? $color : theme.mercury)};
