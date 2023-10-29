@@ -5,6 +5,7 @@ import {
 import { useAppSelector, useAppDispatch } from '../../../redux/hooks'
 import AnswerByInput, { SetValue } from './AnswerByInput'
 import { S } from './styles'
+import AnswerByOption from './AnswerByOption'
 
 export default function Answer() {
   const dispatch = useAppDispatch()
@@ -22,9 +23,22 @@ export default function Answer() {
     setInputValue('')
   }
 
+  const onClick = (event: React.MouseEvent<HTMLParagraphElement>) => {
+    const payload = {
+      id: pronounce.id,
+      reply: event.currentTarget.innerText,
+      answer: pronounce.answer,
+    }
+    dispatch(setNextAndRecord({ ...payload }))
+  }
+
   return (
     <S.AnswerSection>
-      <AnswerByInput onSubmit={onSubmit} />
+      {pronounce.options ? (
+        <AnswerByOption options={pronounce.options} onClick={onClick} />
+      ) : (
+        <AnswerByInput onSubmit={onSubmit} />
+      )}
     </S.AnswerSection>
   )
 }

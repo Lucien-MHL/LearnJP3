@@ -17,7 +17,7 @@ type Record = {
   answerStatus: boolean
 }
 
-type Option = {
+export type Option = {
   id: string
   text: string
 }
@@ -69,8 +69,8 @@ function shuffleArray<T>(array: T[]): T[] {
 function setOptions(array: Item[], index: number = 0): Option[] {
   const toShuffled = shuffleArray(array.filter((_, i) => i !== index))
   const shuffledWithAnswer = shuffleArray([
-    ...toShuffled.slice(0, 4),
     array[index],
+    ...toShuffled.slice(0, 5),
   ])
   return shuffledWithAnswer.map(item => ({ id: item.id, text: item.pronounce }))
 }
