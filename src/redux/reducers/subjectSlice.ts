@@ -66,12 +66,22 @@ function shuffleArray<T>(array: T[]): T[] {
   return shuffledArray
 }
 
+function setOptions(array: Item[], index: number = 0): Option[] {
+  const toShuffled = shuffleArray(array.filter((_, i) => i !== index))
+  const shuffledWithAnswer = shuffleArray([
+    ...toShuffled.slice(0, 4),
+    array[index],
+  ])
+  return shuffledWithAnswer.map(item => ({ id: item.id, text: item.pronounce }))
+}
+
 export const subjectSlice = createSlice({
   name: 'subject',
   initialState,
   reducers: {
     setSubjectWithKey: (state, { payload }: Payload<Keys>) => {
       const shuffledData = shuffleArray(data[payload])
+      const shouldSetOptions = window.screen.width < 1024
       state.data = shuffledData
       state.index = 0
       state.gameInfo = {
@@ -83,6 +93,7 @@ export const subjectSlice = createSlice({
         pronounce: {
           answer: shuffledData[state.index].pronounce,
           id: shuffledData[state.index].id,
+          options: shouldSetOptions ? setOptions(shuffledData) : undefined,
         },
       }
       state.index = state.index + 1
@@ -99,8 +110,14 @@ export const subjectSlice = createSlice({
         answerStatus: payload.reply === payload.answer,
       })
       if (state.gameInfo.count < state.gameInfo.total) {
-        const item = state.data[state.index]
+        const data = state.data
+        const index = state.index
+        const item = data[index]
+        const shouldSetOptions = state.gameInfo.pronounce.options
         state.gameInfo.topic = item.word
+        state.gameInfo.pronounce.options = shouldSetOptions
+          ? setOptions(data, index)
+          : undefined
         state.gameInfo.pronounce.answer = item.pronounce
         state.gameInfo.pronounce.id = item.id
         state.gameInfo.count = state.index + 1
