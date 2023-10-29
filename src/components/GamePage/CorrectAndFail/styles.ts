@@ -6,24 +6,23 @@ export const S = {
     list-style: none;
     position: absolute;
     display: flex;
+    top: 75%;
+    transform: translateY(-100%);
 
     & > li:first-child {
       margin-right: 24px;
     }
 
     @media (min-width: 850px) {
-      left: 75%;
-      bottom: 30px;
+      right: 7%;
     }
 
     @media (max-width: 850px) {
-      top: 75%;
+      justify-content: space-between;
       left: 0;
       right: 0;
-      margin: auto;
-      transform: translateY(-100%);
-      justify-content: space-between;
       width: 80%;
+      margin: auto;
     }
   `,
   Item: styled.li`
