@@ -8,6 +8,12 @@ export const S = {
     display: flex;
     align-items: center;
     position: relative;
+
+    @media (max-width: 850px) {
+      flex-direction: column;
+      width: 65%;
+      height: 100%;
+    }
   `,
   Text: styled.p`
     user-select: none;
@@ -16,8 +22,15 @@ export const S = {
     letter-spacing: 3px;
     font-size: 28px;
     left: 0;
-    translate: -110%;
+    transform: translateX(-110%);
     text-shadow: 0 8px 10px ${({ theme }) => theme.black};
+
+    @media (max-width: 850px) {
+      position: static;
+      transform: none;
+      font-size: 22px;
+      margin: 32px 0;
+    }
   `,
   Input: styled.input`
     display: inline-block;
@@ -34,6 +47,10 @@ export const S = {
 
     &:focus {
       outline: none;
+    }
+
+    @media (max-width: 850px) {
+      height: 50%;
     }
   `,
 }

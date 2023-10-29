@@ -5,20 +5,26 @@ export const S = {
     user-select: none;
     list-style: none;
     position: absolute;
-    left: 75%;
-    bottom: 30px;
     display: flex;
 
     & > li:first-child {
       margin-right: 24px;
     }
 
-    /* TODO: mobile view style */
-    /* @media (max-width: 850px) {
-      position: static;
-      justify-content: center;
-      margin-top: 15px;
-    } */
+    @media (min-width: 850px) {
+      left: 75%;
+      bottom: 30px;
+    }
+
+    @media (max-width: 850px) {
+      top: 75%;
+      left: 0;
+      right: 0;
+      margin: auto;
+      transform: translateY(-100%);
+      justify-content: space-between;
+      width: 80%;
+    }
   `,
   Item: styled.li`
     display: flex;
@@ -27,6 +33,11 @@ export const S = {
 
     & > p:last-child {
       font-size: 50px;
+    }
+    @media (max-width: 850px) {
+      & > p:last-child {
+        font-size: 45px;
+      }
     }
   `,
   Text: styled.p<{ $color?: string }>`
@@ -40,6 +51,9 @@ export const S = {
     text-shadow: 0 10px 10px ${({ theme }) => theme.black};
     font-size: 20px;
     position: relative;
+    @media (max-width: 850px) {
+      font-size: 16px;
+    }
   `,
   Bounce: styled.span`
     display: flex;
