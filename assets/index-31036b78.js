@@ -214,7 +214,7 @@ Error generating stack: `+i.message+`
   `,Text:z.p`
     @font-face {
       font-family: MPLUSRounded1c;
-      src: url('./font/MPLUSRounded1c-Medium.ttf');
+      src: url(./font/MPLUSRounded1c-Medium.ttf);
     }
     font-family: MPLUSRounded1c, sans-serif;
     color: ${({$color:e,theme:t})=>e||t.mercury};
@@ -296,7 +296,7 @@ Error generating stack: `+i.message+`
   `},ww=({onSubmit:e})=>{const{t}=Er(),[n,r]=j.useState(""),o=s=>{const l=s.target.value;r(l.replace(/[^a-z]/g,""))},i=s=>{s.preventDefault(),e(n,r)};return b.jsxs(Nl.Form,{onSubmit:i,children:[b.jsx(Nl.Text,{children:t("insert-answer")}),b.jsx(Nl.Input,{type:"text",value:n,onChange:o,maxLength:3,autoFocus:!0})]})},Sw={AnswerSection:z.main`
     @font-face {
       font-family: PlaypenSans;
-      src: url('./font/PlaypenSans-Regular.ttf');
+      src: url(./font/PlaypenSans-Regular.ttf);
     }
     width: 85%;
     height: 25%;
