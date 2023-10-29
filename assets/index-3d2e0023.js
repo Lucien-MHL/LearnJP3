@@ -179,20 +179,26 @@ Error generating stack: `+i.message+`
     user-select: none;
     list-style: none;
     position: absolute;
-    left: 75%;
-    bottom: 30px;
     display: flex;
 
     & > li:first-child {
       margin-right: 24px;
     }
 
-    /* TODO: mobile view style */
-    /* @media (max-width: 850px) {
-      position: static;
-      justify-content: center;
-      margin-top: 15px;
-    } */
+    @media (min-width: 850px) {
+      left: 75%;
+      bottom: 30px;
+    }
+
+    @media (max-width: 850px) {
+      top: 75%;
+      left: 0;
+      right: 0;
+      margin: auto;
+      transform: translateY(-100%);
+      justify-content: space-between;
+      width: 80%;
+    }
   `,Item:A.li`
     display: flex;
     flex-direction: column;
@@ -200,6 +206,11 @@ Error generating stack: `+i.message+`
 
     & > p:last-child {
       font-size: 50px;
+    }
+    @media (max-width: 850px) {
+      & > p:last-child {
+        font-size: 45px;
+      }
     }
   `,Text:A.p`
     @font-face {
@@ -212,6 +223,9 @@ Error generating stack: `+i.message+`
     text-shadow: 0 10px 10px ${({theme:e})=>e.black};
     font-size: 20px;
     position: relative;
+    @media (max-width: 850px) {
+      font-size: 16px;
+    }
   `,Bounce:A.span`
     display: flex;
     justify-content: center;
@@ -238,6 +252,12 @@ Error generating stack: `+i.message+`
     display: flex;
     align-items: center;
     position: relative;
+
+    @media (max-width: 850px) {
+      flex-direction: column;
+      width: 65%;
+      height: 100%;
+    }
   `,Text:A.p`
     user-select: none;
     position: absolute;
@@ -245,8 +265,15 @@ Error generating stack: `+i.message+`
     letter-spacing: 3px;
     font-size: 28px;
     left: 0;
-    translate: -110%;
+    transform: translateX(-110%);
     text-shadow: 0 8px 10px ${({theme:e})=>e.black};
+
+    @media (max-width: 850px) {
+      position: static;
+      transform: none;
+      font-size: 22px;
+      margin: 32px 0;
+    }
   `,Input:A.input`
     display: inline-block;
     width: 100%;
@@ -262,6 +289,10 @@ Error generating stack: `+i.message+`
 
     &:focus {
       outline: none;
+    }
+
+    @media (max-width: 850px) {
+      height: 50%;
     }
   `},yw=({onSubmit:e})=>{const{t}=Er(),[n,r]=j.useState(""),o=s=>{const l=s.target.value;r(l.replace(/[^a-z]/g,""))},i=s=>{s.preventDefault(),e(n,r)};return b.jsxs(Nl.Form,{onSubmit:i,children:[b.jsx(Nl.Text,{children:t("insert-answer")}),b.jsx(Nl.Input,{type:"text",value:n,onChange:o,maxLength:3,autoFocus:!0})]})},vw={AnswerSection:A.main`
     @font-face {
@@ -304,15 +335,6 @@ Error generating stack: `+i.message+`
       margin: auto;
     }
 
-    @media (max-width: 850px) {
-      &::before {
-        top: 65%;
-        box-shadow: 0 5px 10px ${({theme:e})=>e.black},
-          0 140px ${({theme:e})=>e.mercury},
-          0 145px 10px ${({theme:e})=>e.black};
-      }
-    }
-
     @media (min-width: 850px) {
       &::after {
         content: '';
@@ -339,7 +361,7 @@ Error generating stack: `+i.message+`
 
     @media (max-width: 850px) {
       font-size: 28px;
-      top: -25px;
+      top: 0;
     }
   `,Subject:A.p`
     user-select: none;
@@ -354,7 +376,6 @@ Error generating stack: `+i.message+`
 
     @media (max-width: 850px) {
       font-size: 200px;
-      height: 60%;
     }
   `,Counter:A.p`
     position: absolute;
@@ -367,7 +388,6 @@ Error generating stack: `+i.message+`
     font-weight: bold;
 
     @media (max-width: 850px) {
-      top: 58%;
       font-size: 20px;
       text-shadow: 0 3px 5px ${({theme:e})=>e.black};
     }
