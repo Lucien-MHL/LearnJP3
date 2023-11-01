@@ -25,7 +25,7 @@ export default function GamePage() {
       dispatch(changePage(PageName.end))
     }, 750)
     return
-  }, [index, total])
+  }, [index, total, dispatch])
 
   return (
     <S.GameSection $isEnd={isEnd}>
