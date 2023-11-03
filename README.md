@@ -5,6 +5,22 @@
 
 ## 目錄
 
+- [專案建置](#專案建置)
+- [網站介紹](#介紹)
+  - [首頁畫面](#首頁畫面)
+  - [遊玩畫面](#遊玩畫面)
+  - [結束畫面](#結束畫面)
+  - [開啟方式](#開啟方式)
+
+## 專案建置
+
+本專案是使用 Vite 建置的，專案內使用:
+
+- [styled-component](https://styled-components.com/) 設定組件樣式與全域樣式。
+- [Redux Toolkit](https://redux-toolkit.js.org/) 管理頁面狀態、題目狀態。
+- [TypeScript](https://www.typescriptlang.org/) 增強型別。
+- 透過 [Github Action](https://github.com/features/actions) 部屬靜態網站。
+
 ## 介紹
 
 此網站的製作發想是基於於[這篇文章](https://medium.com/the-bayesian-trap/19-%E5%AF%AB%E7%A8%8B%E5%BC%8F%E4%BE%86%E5%B9%AB%E8%87%AA%E5%B7%B1%E5%BC%84%E6%87%82-%E3%81%82%E3%81%84%E3%81%86%E3%81%88%E3%81%8A-a316b4957488)。  
@@ -61,5 +77,3 @@
      ```bash
      yarn start
      ```
-
-## 專案建置
