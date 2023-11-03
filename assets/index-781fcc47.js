@@ -411,7 +411,7 @@ Error generating stack: `+i.message+`
       font-size: 20px;
       text-shadow: 0 3px 5px ${({theme:e})=>e.black};
     }
-  `};function Ew(){const{t:e}=Er(),t=Vu(),n=Ge(gt("title")),r=Ge(gt("topic")),o=Ge(gt("count")),i=Ge(gt("total")),s=Ge(p=>p.subject.index),[l,a]=n.split("-"),[u,f]=j.useState(!1);return j.useEffect(()=>{s<=i||(f(!(s<=i)),setTimeout(()=>{t(Ui(Nn.end))},750))},[s,i]),b.jsxs(Wo.GameSection,{$isEnd:u,children:[b.jsxs(Wo.Title,{children:[e(l)," - ",e(a)]}),b.jsx(Wo.Subject,{children:r}),b.jsx(Wo.Counter,{children:`- ${o} / ${i} -`}),b.jsx(kw,{}),b.jsx(vw,{})]})}const In={RecordBoard:z.section`
+  `};function Ew(){const{t:e}=Er(),t=Vu(),n=Ge(gt("title")),r=Ge(gt("topic")),o=Ge(gt("count")),i=Ge(gt("total")),s=Ge(p=>p.subject.index),[l,a]=n.split("-"),[u,f]=j.useState(!1);return j.useEffect(()=>{s<=i||(f(!(s<=i)),setTimeout(()=>{t(Ui(Nn.end))},750))},[s,i,t]),b.jsxs(Wo.GameSection,{$isEnd:u,children:[b.jsxs(Wo.Title,{children:[e(l)," - ",e(a)]}),b.jsx(Wo.Subject,{children:r}),b.jsx(Wo.Counter,{children:`- ${o} / ${i} -`}),b.jsx(kw,{}),b.jsx(vw,{})]})}const In={RecordBoard:z.section`
     width: 100%;
     height: 400px;
     padding: 32px 0;
