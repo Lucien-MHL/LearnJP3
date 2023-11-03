@@ -18,8 +18,8 @@
 
 - [styled-component](https://styled-components.com/) 設定組件樣式與全域樣式。
 - [Redux Toolkit](https://redux-toolkit.js.org/) 管理頁面狀態、題目狀態。
-- [TypeScript](https://www.typescriptlang.org/) 增強型別。
-- 透過 [Github Action](https://github.com/features/actions) 部屬靜態網站。
+- [TypeScript](https://www.typescriptlang.org/) 增強型別定義。
+- 透過 [Github Action](https://github.com/features/actions) 自動部屬靜態網站。
 
 ## 介紹
 
