@@ -1,7 +1,7 @@
 <h1 align='center'>五十音學習網站</h1>
 
 製作一個學習日文五十音的網站，其內容包含平假名與片假名的 **_清音_** 與 **_濁音_**。  
-此外，透過此專案學習 Typescript、GitHub Actions。
+為了學習日語之外，想透過此專案學習 Typescript、GitHub Actions。
 
 ## 目錄
 
