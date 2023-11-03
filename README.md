@@ -19,8 +19,47 @@
 
 - #### 遊玩畫面
 
-  在遊玩畫面中( 以平假名的清音為例 )可以看見有四個選項，可以從這選擇想要的題目類型。
+  在遊玩畫面中( 如下圖，以平假名的清音為例 )，題目部分為`ろ`，因此在下方`輸入答案`旁邊的黑框中輸入其拼音`ro`後按下<kbd>Enter</kbd>即可。
 
   <img src='./src/assets/pictures/GamePageInterface.jpeg'>
+
+- #### 結束畫面
+
+  在所有題目作答完成後便會結束，在這畫面中( 如下圖 )可以看到先前作答的結果並以分數顯示，若有錯誤的則會在中間出現，綠色為正確拼音，紅色部分則是剛才輸入的結果。
+
+  <img src='./src/assets/pictures/EndPageInterface.png'>
+
+- #### 開啟方式
+
+  在理解此網站的基本操作後，是不是躍躍欲試想嘗試看看自己的日語程度了呢。
+
+  這邊提供兩個方式讓你可以遊玩的方式。
+
+  1. 透過連結:  
+     直接點擊旁邊的文字即可開啟，[前往網站](https://lucien-mhl.github.io/LearnJP3/)。
+
+  2. 透過本地端:  
+     使用 npm
+
+     ```bash
+     npm install
+     ```
+
+     ```bash
+     npm run start
+     ```
+
+     使用 yarn
+
+     ```bash
+     yarn install
+
+     #or
+     yarn
+     ```
+
+     ```bash
+     yarn start
+     ```
 
 ## 專案建置
