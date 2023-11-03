@@ -20,6 +20,7 @@
 - [Redux Toolkit](https://redux-toolkit.js.org/) 管理頁面狀態、題目狀態。
 - [TypeScript](https://www.typescriptlang.org/) 增強型別定義。
 - 透過 [Github Action](https://github.com/features/actions) 自動部屬靜態網站。
+- 字體來源 [Google Font](https://fonts.google.com/)。
 
 ## 介紹
 
